@@ -85,7 +85,8 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--bg-btn-color);
+  color: var(--bg-footer);
+  /* color: var(--bg-btn-color); */
   letter-spacing: 0.02em;
 }
 
@@ -569,9 +570,6 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
