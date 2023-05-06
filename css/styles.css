@@ -86,8 +86,11 @@ img {
   font-size: 16px;
   line-height: 1.5;
   color: var(--bg-footer);
-  /* color: var(--bg-btn-color); */
   letter-spacing: 0.02em;
+}
+
+.active {
+  color: var(--bg-btn-color);
 }
 
 .header-link::after {
