@@ -92,12 +92,11 @@ img {
 .header-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  /* background-color: var(--bg-btn-color); */
 }
 
 .header-link.active::after {
@@ -197,6 +196,7 @@ img {
   font-family: 'Roboto', sans-serif;
   color: var(--white-color);
   background-color: var(--btn-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   min-width: 169px;
   height: 56px;
   border: none;
@@ -209,14 +209,12 @@ img {
   border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
-  transition: background-color var(--duration) var(--bazier),
-    box-shadow var(--duration) var(--bazier);
+  transition: background-color var(--duration) var(--bazier);
 }
 
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--bg-btn-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .about {
@@ -382,7 +380,7 @@ img {
   border: 1px solid #e7e9fc;
   border-radius: 4px;
   transition: color var(--duration) var(--bazier), background-color var(--duration) var(--bazier),
-    box-shadow var(--duration) var(--bazier);
+    border-color var(--duration) var(--bazier), box-shadow var(--duration) var(--bazier);
 }
 
 .filters-btn:hover,
@@ -555,7 +553,7 @@ img {
   overflow: hidden;
 }
 
-.project-card-overlay {
+/* .project-card-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -564,26 +562,30 @@ img {
   background-color: var(--btn-color);
   transform: translateY(100%);
   transition: 400ms;
-}
-
-.project-card-item:hover .project-card-overlay {
-  transform: translateY(0);
-}
+} */
 
 .project-card-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 164px;
-  padding-top: 40px;
+  padding: 40px 32px;
   color: var(--log-color);
+  background-color: var(--btn-color);
+  transform: translateY(100%);
+  transition: transform var(--duration) var(--bazier);
 }
 
+.project-card-link:hover .project-card-text,
+.project-card-link:focus.project-card-text {
+  transform: translateY(0);
+}
 .cards-row-container {
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
@@ -599,6 +601,7 @@ img {
 }
 
 .project-card-link {
+  transform: translateY(0%);
   display: block;
   transition: box-shadow var(--duration) var(--bazier);
 }
@@ -629,7 +632,7 @@ img {
   width: 100%;
   height: 100%;
   background: rgba(46, 47, 66, 0.4);
-  transition: opacity 300ms linear, visibility 300ms linear;
+  transition: opacity var(--duration) var(--bazier), visibility var(--duration) var(--bazier);
 }
 .modal {
   position: absolute;
@@ -637,11 +640,13 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 408px;
+  min-height: 576px;
   height: 584px;
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: transform var(--duration) var(--bazier);
 }
 
 .backdrop.is-hidden {
@@ -661,21 +666,26 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e7e9fc;
   padding: 0;
   width: 24px;
   height: 24px;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   border-radius: 50%;
-  transition: background-color var(--duration) var(--bazier);
+  transition: background-color var(--duration) var(--bazier), border var(--duration) var(--bazier);
 }
 .modal-close-icon {
-  fill: var(--bg-btn-color);
-  transition: color var(--duration) var(--bazier) 250ms;
+  fill: #2e2f42;
+  transition: color var(--duration) var(--bazier);
 }
-.modal-close-icon:active {
-  fill: #ffffff;
-}
-.close-button:active {
+
+.close-button:focus,
+.close-button:hover {
   background-color: var(--bg-btn-color);
+  border: none;
+}
+.close-button:hover .modal-close-icon,
+.close-button:focus .modal-close-icon {
+  fill: var(--white-color);
 }
