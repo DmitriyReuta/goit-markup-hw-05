@@ -85,7 +85,7 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--main-color);
+  color: var(--bg-btn-color);
   letter-spacing: 0.02em;
 }
 
@@ -583,7 +583,7 @@ img {
 }
 
 .project-card-link:hover .project-card-text,
-.project-card-link:focus.project-card-text {
+.project-card-link:focus .project-card-text {
   transform: translateY(0);
 }
 .cards-row-container {
@@ -677,7 +677,7 @@ img {
 }
 .modal-close-icon {
   fill: #2e2f42;
-  transition: color var(--duration) var(--bazier);
+  transition: fill var(--duration) var(--bazier);
 }
 
 .close-button:focus,
